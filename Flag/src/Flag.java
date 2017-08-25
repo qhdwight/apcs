@@ -58,6 +58,7 @@ public class Flag extends JPanel {
      */
     private void drawFlag(Graphics2D g2, final float height) {
 
+        drawBackground(g2, height);
         drawStripes(g2, height);
         drawUnion(g2, height);
         drawStars(g2, height);
@@ -73,17 +74,22 @@ public class Flag extends JPanel {
         // Get correct scaled height
         final float stripeHeight = height / NUMBER_OF_STRIPES;
 
-        // Draw each stripe given the number of them
-        for (int y = 0; y < NUMBER_OF_STRIPES; y ++) {
+        g2.setColor(STRIPE_COLOR);
 
-            // Get and set the correct color of the stripe. This is so that they alternate based on index
-            boolean evenIndex = y % 2 == 0;
-            Color stripeColor = evenIndex ? STRIPE_COLOR : Color.WHITE;
-            g2.setColor(stripeColor);
+        // Draw each stripe given the number of them, add two
+        // each time so that the stripes are spaced out
+        for (int y = 0; y < NUMBER_OF_STRIPES; y += 2) {
 
             // Draw the actual bar with the correct scaling
             g2.fillRect(0, (int)(y * stripeHeight), (int)(height * FLAG_WIDTH_RATIO), (int)stripeHeight);
         }
+    }
+
+    private void drawBackground(Graphics2D g2, final float height) {
+
+        g2.setColor(Color.WHITE);
+
+        g2.fillRect(0, 0, (int)(height * FLAG_WIDTH_RATIO), (int)height);
     }
 
     /**
