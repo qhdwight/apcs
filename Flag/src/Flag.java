@@ -1,33 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class that can draw the american flag, and also provides other functions to draw different flags.
+ * <br/><br/>
+ * Private functions:
+ * <ul>
+ *     <li>{@link #drawAmericanFlag}</li>
+ *     <li>{@link #drawRectangle}</li>
+ *     <li>{@link #drawStripes}</li>
+ *     <li>{@link #drawStarGrid}</li>
+ *     <li>{@link #drawStar}</li>
+ * </ul>
+ */
 public class Flag extends JPanel {
 
     private static final float
+        // Ratio constants for the American flag
         FLAG_WIDTH_RATIO = 1.9f, UNION_HEIGHT_RATIO = 7f/13f, UNION_WIDTH_RATIO = 0.76f,
-        STAR_DIAMETER_RATIO = 0.0616f, STAR_GAP_X_RATIO = 0.063f, STAR_GAP_Y_RATIO = 0.054f;
-    private static final float STAR_POINTS = 5, STAR_ANGLE = (float)(2.0*Math.PI / (STAR_POINTS * 2.0));
+        STAR_DIAMETER_RATIO = 0.0616f, STAR_GAP_X_RATIO = 0.063f, STAR_GAP_Y_RATIO = 0.054f,
+        // Floating point constants for the American flag
+        STAR_POINTS = 5, STAR_ANGLE = (float)((2.0*Math.PI) / (STAR_POINTS * 2.0));
+    // Numerical constants for the American flag
     private static final int NUMBER_OF_STRIPES = 13;
+    // American flag colors, no perfect match exists since original colors were on fabric, but these are close
     private static final Color UNION_COLOR = new Color(0, 33, 71), STRIPE_COLOR = new Color(187, 19, 62);
-
-    public static void main(String[] args) {
-
-        JFrame frame = new JFrame("Flag");
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        Flag flag = new Flag();
-
-        frame.add(flag);
-
-        frame.pack();
-
-        frame.setVisible(true);
-    }
 
     /**
      * Default constructor for the Flag object
      */
-    private Flag()
+    public Flag()
     {
         setBackground(Color.LIGHT_GRAY);
     }
@@ -167,7 +169,7 @@ public class Flag extends JPanel {
             // Get angle for this point. The subtraction of 0.5 is to make sure that
             // the star is horizontally symmetrical
             final double angle = STAR_ANGLE * (i - 0.5f);
-            // Get radius of point, whether it is exterior or interior point based on whether or not i is odd/even.
+            // Get radius of point, whether it is exterior or interior point based on whether or not i is odd/even (that's what modulus does).
             // This makes sure that adjacent points are different radii but are the same every other.
             final float r = i % 2 == 0 ? radius : radius / 2.1f;
             // Convert from polar coordinates to cartesian and add the offsets
