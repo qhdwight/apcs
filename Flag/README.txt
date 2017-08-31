@@ -1,3 +1,6 @@
+Flag Project by Quintin Dwight
+==============================
+
 Introduction
 ------------
 

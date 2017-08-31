@@ -2,6 +2,9 @@
   <artifact type="jar" name="Flag:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Flag_jar</output-path>
     <root id="archive" name="Flag.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="Flag" />
     </root>
   </artifact>
