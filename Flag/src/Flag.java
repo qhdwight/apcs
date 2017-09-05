@@ -20,7 +20,7 @@ public class Flag extends JPanel {
         FLAG_WIDTH_RATIO = 1.9f, UNION_HEIGHT_RATIO = 7f/13f, UNION_WIDTH_RATIO = 0.76f,
         STAR_DIAMETER_RATIO = 0.0616f, STAR_GAP_X_RATIO = 0.063f, STAR_GAP_Y_RATIO = 0.054f,
         // Floating point constants for the American flag
-        STAR_POINTS = 5, STAR_ANGLE = (float)((2.0*Math.PI) / (STAR_POINTS * 2.0));
+        STAR_POINTS = 5, STAR_ANGLE = (float)((2.0*Math.PI) / (STAR_POINTS * 2.0)), STAR_RADIUS_RATIO = 2.618f;
     // Numerical constants for the American flag
     private static final int NUMBER_OF_STRIPES = 13;
     // American flag colors, no perfect match exists since original colors were on fabric, but these are close
@@ -175,7 +175,7 @@ public class Flag extends JPanel {
             final double angle = STAR_ANGLE * (i - 0.5f);
             // Get radius of point, whether it is exterior or interior point based on whether or not i is odd/even (that's what modulus does).
             // This makes sure that adjacent points are different radii but are the same every other.
-            final float r = i % 2 == 0 ? radius : radius / 2.1f;
+            final float r = i % 2 == 0 ? radius : radius / STAR_RADIUS_RATIO;
             // Convert from polar coordinates to cartesian and add the offsets
             final int
                 pointX = (int)(Math.cos(angle) * r) + x,
