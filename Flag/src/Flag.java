@@ -44,7 +44,7 @@ public class Flag extends JPanel {
         // Get the correct height, this makes sure the flag is never cut off
         final float height = Math.min(getHeight(), getWidth() / FLAG_WIDTH_RATIO);
 
-        drawAmericanFlag(g2, height);
+        drawAmericanFlag(g2, 0, 0, height);
     }
 
     @Override
@@ -57,26 +57,28 @@ public class Flag extends JPanel {
      * Draws an entire U.S. flag. Uses {@link #drawStarGrid}, {@link #drawRectangle}, and {@link #drawStripes}.
      *
      * @param g2 The graphics object used in order to draw
+     * @param x The top left x coordinate of the flag
+     * @param y The top left y coordinate of the flag
      * @param height The height of the flag
      */
-    private void drawAmericanFlag(Graphics2D g2, final float height) {
+    private void drawAmericanFlag(Graphics2D g2, final float x, final float y, final float height) {
 
         // Draw background
         final float width = height * FLAG_WIDTH_RATIO;
-        drawRectangle(g2, Color.WHITE, 0, 0, width, height);
+        drawRectangle(g2, Color.WHITE, x, y, width, height);
 
         // Draw stripes
         final float stripeHeight = height / NUMBER_OF_STRIPES;
-        drawStripes(g2, STRIPE_COLOR, width, stripeHeight);
+        drawStripes(g2, STRIPE_COLOR, x, y, width, stripeHeight);
 
         // Draw union rectangle
         final float unionWidth = height * UNION_WIDTH_RATIO, unionHeight = height * UNION_HEIGHT_RATIO;
-        drawRectangle(g2, UNION_COLOR, 0, 0, unionWidth, unionHeight);
+        drawRectangle(g2, UNION_COLOR, x, y, unionWidth, unionHeight);
 
         // Draw both grid of stars
         final float starGapX = height * STAR_GAP_X_RATIO, starGapY = height * STAR_GAP_Y_RATIO, starDiameter = height * STAR_DIAMETER_RATIO;
-        drawStarGrid(g2, Color.WHITE, starGapX, starGapY, 6, 5, starGapX*2.0f, starGapY*2.0f, starDiameter);
-        drawStarGrid(g2, Color.WHITE, starGapX*2.0f, starGapY*2.0f, 5, 4, starGapX*2.0f, starGapY*2.0f, starDiameter);
+        drawStarGrid(g2, Color.WHITE, x + starGapX, y + starGapY, 6, 5, starGapX*2.0f, starGapY*2.0f, starDiameter);
+        drawStarGrid(g2, Color.WHITE, x + starGapX*2.0f, y + starGapY*2.0f, 5, 4, starGapX*2.0f, starGapY*2.0f, starDiameter);
     }
 
     /**
@@ -84,19 +86,21 @@ public class Flag extends JPanel {
      *
      * @param g2 The graphics object used in order to draw
      * @param c The color of the stripes
+     * @param x The top left x coordinate of the stripes
+     * @param y The top left y coordinate of the stripes
      * @param width The width of the flag
      * @param stripeHeight The height of the stripe
      */
-    private void drawStripes(Graphics2D g2, final Color c, final float width, final float stripeHeight) {
+    private void drawStripes(Graphics2D g2, final Color c, final float x, final float y, final float width, final float stripeHeight) {
 
         g2.setColor(c);
 
         // Draw each stripe given the number of them, add two
         // each time so that the stripes are spaced out
-        for (int y = 0; y < NUMBER_OF_STRIPES; y += 2) {
+        for (int iy = 0; iy < NUMBER_OF_STRIPES; iy += 2) {
 
             // Draw the actual bar with the correct scaling
-            g2.fillRect(0, (int)(y * stripeHeight), (int)width, (int)stripeHeight);
+            g2.fillRect((int)x, (int)(iy * stripeHeight + y), (int)width, (int)stripeHeight);
         }
     }
 
