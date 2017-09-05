@@ -21,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/Flag.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="146">
-              <caret line="175" column="141" lean-forward="false" selection-start-line="175" selection-start-column="141" selection-end-line="175" selection-end-column="141" />
+              <caret line="175" column="48" lean-forward="true" selection-start-line="175" selection-start-column="48" selection-end-line="175" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -481,7 +481,7 @@
     <entry file="file://$PROJECT_DIR$/src/Flag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
-          <caret line="175" column="141" lean-forward="false" selection-start-line="175" selection-start-column="141" selection-end-line="175" selection-end-column="141" />
+          <caret line="175" column="48" lean-forward="true" selection-start-line="175" selection-start-column="48" selection-end-line="175" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
