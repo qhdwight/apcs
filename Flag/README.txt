@@ -42,7 +42,7 @@ so I compressed them into a single function that draws a rectangle with a specif
 Another example is the stars on the flag, previously I had one function to draw both grids.
 However, I opted to go for another function that draws a single grid of stars and call it twice.
 In addition to this, I added a color parameter to each function so that it can be used for different flag designs.
-Finally, I made an abstract class so that other flags can extend it and be made easily.
+Finally, I made an abstract class so that other flags can extend it and and have utility functions ready.
 
 Challenges
 ----------
