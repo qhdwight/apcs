@@ -15,6 +15,11 @@ it draws an American flag with correct proportions that can be scaled.
 The ratios were taken from http://www.usflag.org/flag.specs.html.
 The colors are close to the real rife ones, but they cannot be matched perfectly.
 
+Errors
+------
+
+The function that gets the point of the stars does not have the correct inner ratio for a star that does not have five points.
+
 Overview of Code
 ----------------
 
@@ -51,3 +56,6 @@ One of the major challenges I had was making the flag resize in a smart manner s
 I realized that I could choose the minimum of the width and the height.
 However, the width does not take into account the ratio, so you have to divide by that ratio.
 Then, you get the proper height of the flag and can pass it to the draw American flag function.
+
+Another problem I had was getting the correct inner radius ratio for a five point star.
+I opted to hard code the ratio in, but this means that the ratio is only correct for stars with five points.

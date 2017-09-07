@@ -142,9 +142,9 @@ public abstract class AbstractFlag extends JPanel {
         Polygon p = new Polygon();
 
         final double
-            radius = diameter / 2.0,
+            outerRadius = diameter / 2.0,
             starAngle = Math.PI / starPoints,
-            starRadiusRatio = Math.cos(Math.PI - starAngle*4.0)/(Math.cos(starAngle*2.0));
+            innerRadius = outerRadius / 2.618;
 
         for (int i = 0; i < starPoints * 2; i++) {
             // Get angle for this point. The subtraction of 0.5 is to make sure that
@@ -152,7 +152,7 @@ public abstract class AbstractFlag extends JPanel {
             final double angle = starAngle * (i - 0.5);
             // Get radius of point, whether it is exterior or interior point based on whether or not i is odd/even (that's what modulus does).
             // This makes sure that adjacent points are different radii but are the same every other.
-            final double r = i % 2 == 0 ? radius : radius / starRadiusRatio;
+            final double r = i % 2 == 0 ? outerRadius : innerRadius;
             // Convert from polar coordinates to cartesian and add the offsets
             final int
                 pointX = floor(Math.cos(angle) * r),
