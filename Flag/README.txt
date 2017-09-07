@@ -11,14 +11,15 @@ Specification
 -------------
 
 This program meets the specifications of the assignment,
-it draws an American flag with correct proportions that can be scaled.
+it draws an American flag with correct proportions that can be scaled by resizing the window.
 The ratios were taken from http://www.usflag.org/flag.specs.html.
 The colors are close to the real rife ones, but they cannot be matched perfectly.
 
 Errors
 ------
 
-The function that gets the point of the stars does not have the correct inner ratio for a star that does not have five points.
+The function that gets the point of the stars has the same inner ratio no matter the size.
+It is calibrated for the five point star but is incorrect for other sizes.
 
 Overview of Code
 ----------------
@@ -59,3 +60,9 @@ Then, you get the proper height of the flag and can pass it to the draw American
 
 Another problem I had was getting the correct inner radius ratio for a five point star.
 I opted to hard code the ratio in, but this means that the ratio is only correct for stars with five points.
+
+Acknowledgement
+---------------
+
+The site http://www.usflag.org/flag.specs.html for providing the correct ratios for the flag.
+The site http://www.cciprinting.net/?p=3450 for similar rgb colors.
