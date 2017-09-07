@@ -1,5 +1,5 @@
-Flag Project by Quintin Dwight
-==============================
+AmericanFlag Project by Quintin Dwight
+======================================
 
 Introduction
 ------------
@@ -7,19 +7,30 @@ Introduction
 This program shows the American flag that can be resized within it's window.
 It uses Java's swing library to draw the shapes.
 
+Specification
+-------------
+
+This program meets the specifications of the assignment,
+it draws an American flag with correct proportions that can be scaled.
+The ratios were taken from http://www.usflag.org/flag.specs.html.
+The colors are close to the real rife ones, but they cannot be matched perfectly.
+
 Overview of Code
 ----------------
 
-There are two classes, Main and Flag. Main sets up a JFrame and adds a new Flag class to it.
-It also handles packing the Flag into the JFrame and making sure the window is visible.
-The flag class contains a function that can draw the American flag as well as other utility functions.
+There are three classes, Main, AbstractFlag, and AmericanFlag. Main sets up a JFrame and adds a new AmericanFlag class to it.
+It also handles packing the AmericanFlag into the JFrame and making sure the window is visible.
+The abstract class contains functions for drawing common flag items.
+It also handles scaling the flag properly given the size.
+The american flag class contains a function that can draw the American flag as well as other utility functions.
+It extends the abstract class so that it has the drawing functions.
 These include ones to draw a rectangle, a grid of stars, a single star, and stripes.
 The function that draws the American flag uses these utility functions separately for modularity.
 It calculates the correct size for each component based on ratio constants and the current height of the flag.
 The height of the flag is determines from either the width of the height of the frame to make it fit appropriately.
 Since the JPanel overrides the paint function, it is called every time the window is resized.
 
-The function that draws the star uses trigonometry and ratios to fill a polygon onto the Flag JPanel.
+The function that gets a star polygon uses trigonometry and ratios to find the points.
 As a general overview, it uses an increasing angle and specific radius as polar coordinates for the points of the star,
 then uses trigonometry to convert to cartesian coordinates which go into the Polygon.
 
@@ -31,6 +42,7 @@ so I compressed them into a single function that draws a rectangle with a specif
 Another example is the stars on the flag, previously I had one function to draw both grids.
 However, I opted to go for another function that draws a single grid of stars and call it twice.
 In addition to this, I added a color parameter to each function so that it can be used for different flag designs.
+Finally, I made an abstract class so that other flags can extend it and be made easily.
 
 Challenges
 ----------
