@@ -25,7 +25,7 @@ The LogicalSentence class contains a reference to a propositional constant.
 This is the base class for all operators, including the AbstractOperator class,
 which has left and a right logical sentence fields.
 All of the operator classes besides negation use this class as a base.
-Each one of the classes have an evaluate function that takes a truth assignment as a parameter.
+Each one of the classes that extend logical sentence have an evaluate function that takes a truth assignment as a parameter.
 The logical sentence class is the only one that ever accesses the hash map inside of the truth assignment,
 all of the other operators call evaluate on the logical sentences that they contain.
 
@@ -33,7 +33,7 @@ Timeline
 --------
 
 I started out by copying the code from the main function provided and seeing what was incorrect.
-I then made all of the classes to satisfy the error messages, all though the code ran,
+I then made all of the classes to satisfy the error messages, but all though the code ran,
 it did not do anything meaningful. So, I made the classes work,
 starting with the logical sentence class. This is the basis of all the other classes,
 so then I worked on negation and some of the other operators.
