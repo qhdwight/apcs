@@ -17,7 +17,7 @@ public class Main {
         ta1.put(a, false);
         System.out.println(l5.evaluate(ta1));
         System.out.println(LegalSentence.legal("a&"));
-        System.out.println(LegalSentence.findMatch("a(x=>b)|(c&(d&e))", 0));
+        System.out.println(LegalSentence.findMatch("a&(b)", 0));
 
         String[] pc = {"p", "q", "r"};
         TruthTable.truthTable(pc);

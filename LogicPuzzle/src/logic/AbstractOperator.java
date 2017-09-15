@@ -12,4 +12,7 @@ public abstract class AbstractOperator extends LogicalSentence {
         this.left = left;
         this.right = right;
     }
+
+    @Override
+    public abstract boolean evaluate(TruthAssignment ta);
 }
