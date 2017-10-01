@@ -1,0 +1,3 @@
+[submodule "HiVolts"]
+	path = HiVolts
+	url = https://github.com/anuvabanwasi/HiVolts
