@@ -4,12 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Integer[] input = {3, 1, 4, 1, 5, 9};
+        final Integer[] input = { 3, 1, 4, 1, 5, 9, 2 };
 
-        Sorter<Integer> sorter = new SelectionSort<>();
+        final Integer[] bubbleInput = input.clone(), insertionInput = input.clone(), selectionInput = input.clone();
 
-        sorter.sort(input);
+        final Sorter<Integer> bubbleSort = new BubbleSort<>(), insertionSort = new InsertionSort<>(), selectionSort = new SelectionSort<>();
 
-        System.out.println(Arrays.toString(input));
+        bubbleSort   .sort(bubbleInput   );
+        insertionSort.sort(insertionInput);
+        selectionSort.sort(selectionInput);
+
+        System.out.println(Arrays.toString(bubbleInput   ));
+        System.out.println(Arrays.toString(insertionInput));
+        System.out.println(Arrays.toString(selectionInput));
     }
 }
