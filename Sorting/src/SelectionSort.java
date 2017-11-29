@@ -1,7 +1,7 @@
 /**
  * Sorts an array of type {@link T} by finding the smallest element and swapping it to the front of the array repeatedly.
  *
- * @param <T>
+ * @param <T> Type that implements {@link Comparable}
  */
 public class SelectionSort<T extends Comparable<T>> implements Sorter<T> {
 
