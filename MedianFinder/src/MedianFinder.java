@@ -1,53 +1,69 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
+/**
+ * Code for finding a median of an array.
+ * Reference code used from: https://www.geeksforgeeks.org/quick-sort/
+ */
 public class MedianFinder {
 
     public static void main(String[] args) {
-        // System.out.println(findMedianInt(new Integer[]{ 3, 1, 4, 1, 5, 9, 2, 6 }));
-        final Integer[] array = {5, 4, 3, 2, 1};
-        findMedian(array, 0, array.length-1);
-        //Integer median = findMedian(array, 0, array.length-1);
-        //System.out.println(Integer.toString(median));
+        final Integer[] array = {1, 2, 3, 4, 5};
+        final Integer median = findMedian(array, 0, array.length-1, array.length/2);
+        System.out.println(Integer.toString(median));
     }
 
-//    public static Integer findMedianInt(final Integer[] array) {
-//        return findMedian(array, 0, array.length-1);
-//    }
-
+    /**
+     * Given an array and two indices, swap the values.
+     * @param array Array to swap in
+     * @param i1 First index
+     * @param i2 Second index
+     * @param <T> Generic type for element
+     */
     private static <T> void swap(final T[] array, final int i1, final int i2) {
         final T temp = array[i1];
         array[i1] = array[i2];
         array[i2] = temp;
     }
 
-    private static <T extends Comparable<T>> void findMedian(final T[] array, final int low, final int high) {
-        if (low < high) {
-            System.out.println(String.format("Low: %d, High: %d", low, high));
-            final int pi = partition(array, low, high);
-            System.out.println(String.format("Pivot: %d", pi));
-            if (high - low == 1) System.out.println("Median: " + array[pi]);
-//            if (pi > array.length/2) {
-                findMedian(array, low, pi-1);
-//            } else {
-                findMedian(array, pi+1, high);
-//            }
+    /**
+     * Find the median of an array.
+     * @param array Array to find median in
+     * @param low Lower bound, this should be zero at the start
+     * @param high High bound, this should be array length minus one at the start
+     * @param n Index to search for, for median this should be array length over two
+     * @param <T> Generic type for element
+     * @return The median
+     */
+    private static <T extends Comparable<T>> T findMedian(final T[] array, int low, int high, int n) {
+        while (true) {
+            final int pi = partition(array, low, high), length = pi - low + 1;
+            if (n == length) {
+                return array[pi];
+            } else if (n < length) {
+                high = pi - 1;
+            } else {
+                n -= length;
+                low = pi + 1;
+            }
         }
     }
 
+    /**
+     * Partition an array given a lower and upper bound. Partition point is chosen as the end.
+     * @param array Array to partition
+     * @param low Lower bound
+     * @param high Upper bound
+     * @param <T> Generic type for an element, must be comparable so we know how to partition
+     * @return Index of the partition
+     */
     private static <T extends Comparable<T>> int partition(final T[] array, final int low, final int high) {
         final T pivot = array[high];
         int i = low - 1;
-        for (int j = low; j < high; j++) {
+        for (int j = low; j < high-1; j++) {
             if (array[j].compareTo(pivot) <= 0) {
                 i++;
                 swap(array, i, j);
             }
         }
         swap(array, i + 1, high);
-        System.out.println(Arrays.toString(array));
         return i + 1;
     }
 }
