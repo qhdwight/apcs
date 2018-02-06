@@ -15,11 +15,15 @@ public class Randp {
      * @param upper Upper bound of the random number
      */
     public Randp(final int upper) {
-        m_Numbers = new int[upper];
-        m_NumbersLeft = upper;
-        initializeNumbers();
-        // Initialize random object with unique seed (the current time)
-        m_Random = new Random(System.currentTimeMillis());
+        if (upper >= 0) {
+            m_Numbers = new int[upper];
+            m_NumbersLeft = upper;
+            initializeNumbers();
+            // Initialize random object with unique seed (the current time)
+            m_Random = new Random(System.currentTimeMillis());
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -38,10 +42,11 @@ public class Randp {
      */
     public int nextInt() {
         if (m_NumbersLeft >= 1) {
+            // Note: upper bound is not inclusive
             final int index = m_Random.nextInt(m_NumbersLeft);
             --m_NumbersLeft;
-            // Swap to end of array
             final int randomInt = m_Numbers[index];
+            // Swap random integer to end of array and effectively ignore it
             m_Numbers[index] = m_Numbers[m_NumbersLeft];
             m_Numbers[m_NumbersLeft] = randomInt;
             return randomInt;
