@@ -1,8 +1,13 @@
-import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * {@link Set} that includes {@link #union(MathSet)} and {@link #intersection(MathSet)} methods.
+ * It uses an internal array to store values and doubles in size every time the previous size is exceeded.
+ *
+ * @param <E> Type to hold
+ */
 public class MathSet<E> implements Set<E> {
 
     private E[] m_Container;
@@ -114,6 +119,13 @@ public class MathSet<E> implements Set<E> {
         return false;
     }
 
+    /**
+     * Remove the element at a given index.
+     * The internal array is resized after to fill the gap.
+     *
+     * @param i Index of element to remove
+     * @return Whether or not the process was successful
+     */
     public boolean removeAtIndex(final int i) {
         if (i < m_Size && i >= 0) {
             // Create array of elements that come after the element to remove
@@ -177,6 +189,7 @@ public class MathSet<E> implements Set<E> {
 
     /**
      * Copy values of this math set into another one.
+     *
      * @return Cloned math set
      */
     public MathSet<E> copy() {
@@ -187,6 +200,7 @@ public class MathSet<E> implements Set<E> {
 
     /**
      * Obtain the union of both of the math sets, the set that contains all elements from both sets.
+     *
      * @param other Math set to create a union with
      * @return Union with the set provided
      */
@@ -199,6 +213,7 @@ public class MathSet<E> implements Set<E> {
 
     /**
      * Obtain the intersection of both math sets, only contains shared elements between both.
+     *
      * @param other Math set to create a difference with
      * @return Intersection with the set provided
      */
