@@ -2,6 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BST/BST.iml" filepath="$PROJECT_DIR$/BST/BST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dijkstra/Dijkstra.iml" filepath="$PROJECT_DIR$/Dijkstra/Dijkstra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FRQ2017Problem1/FRQ2017Problem1.iml" filepath="$PROJECT_DIR$/FRQ2017Problem1/FRQ2017Problem1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Flag/Flag.iml" filepath="$PROJECT_DIR$/Flag/Flag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Intro/Intro.iml" filepath="$PROJECT_DIR$/Intro/Intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSONReader/JSONReader.iml" filepath="$PROJECT_DIR$/JSONReader/JSONReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LogicPuzzle/LogicPuzzle.iml" filepath="$PROJECT_DIR$/LogicPuzzle/LogicPuzzle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MathSet/MathSet.iml" filepath="$PROJECT_DIR$/MathSet/MathSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MedianFinder/MedianFinder.iml" filepath="$PROJECT_DIR$/MedianFinder/MedianFinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PriorityQueue/PriorityQueue.iml" filepath="$PROJECT_DIR$/PriorityQueue/PriorityQueue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RandP/RandP.iml" filepath="$PROJECT_DIR$/RandP/RandP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SetStuff/SetStuff.iml" filepath="$PROJECT_DIR$/SetStuff/SetStuff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting/Sorting.iml" filepath="$PROJECT_DIR$/Sorting/Sorting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vocabulary14/Vocabulary14.iml" filepath="$PROJECT_DIR$/Vocabulary14/Vocabulary14.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/apcs.iml" filepath="$PROJECT_DIR$/.idea/apcs.iml" />
     </modules>
   </component>

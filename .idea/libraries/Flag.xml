@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Flag">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Flag/out/artifacts/Flag.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
