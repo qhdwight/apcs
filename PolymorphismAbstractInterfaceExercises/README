@@ -1,0 +1,30 @@
+Abstract
+========
+
+An abstract class cannot be directly instantiated, but can have fields and methods that a class extending it has access to.
+Abstract method make it so that the extending class has to implement the body of the method.
+The abstract class only defines the method signature.
+
+Polymorphism
+============
+
+----------
+| animal |-------
+----------      |
+    |           |
+---------    -------
+|  cat  |    | dog |
+---------    -------
+                |
+             -----------
+             | big dog |
+             -----------
+
+Animal cannot be instantiated since it is an abstract class.
+Dog cannot be cast to Cat because they are in separate branches.
+
+Interfaces
+==========
+
+Interfaces can only define methods to be implemented, where as abstract classes can do the same and also provide bodies.
+Abstract classes can also contain constructors and field variables, where as interfaces can not.
