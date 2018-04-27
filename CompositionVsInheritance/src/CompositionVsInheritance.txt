@@ -1,0 +1,4 @@
+In this case, composition is better because it is more consistent.
+With inheritance, one point is the actual object and another is a field variable.
+With composition, both are field variables, it is more clear where they are defined.
+If you think about the definition of a line too, it is defined by two points, not the extension of one.
